@@ -10,16 +10,17 @@ interface Project {
   technologies: string[];
   features: string[];
   color: string;
-  icon: LucideIcon;
+  icon: typeof LucideIcon;
   status: string;
 }
 
 interface ProjectsSectionProps {
   projects: Project[];
   scrollY: number;
+  onPrivacyPolicyClick?: () => void;
 }
 
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, scrollY }) => {
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, scrollY, onPrivacyPolicyClick }) => {
   return (
     <section id="projects" className="py-24 bg-white relative overflow-hidden">
       {/* Parallax Background Elements */}
@@ -55,6 +56,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects, scrollY }) 
               project={project}
               index={index}
               scrollY={scrollY}
+              onPrivacyPolicyClick={onPrivacyPolicyClick}
             />
           ))}
         </div>

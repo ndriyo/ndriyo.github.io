@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, DivideIcon as LucideIcon } from 'lucide-react';
+import { ExternalLink, Shield, DivideIcon as LucideIcon } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -9,7 +9,7 @@ interface Project {
   technologies: string[];
   features: string[];
   color: string;
-  icon: LucideIcon;
+  icon: typeof LucideIcon;
   status: string;
 }
 
@@ -17,9 +17,10 @@ interface ProjectCardProps {
   project: Project;
   index: number;
   scrollY: number;
+  onPrivacyPolicyClick?: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, scrollY }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, scrollY, onPrivacyPolicyClick }) => {
   return (
     <div
       className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 hover:border-slate-200 transform hover:-translate-y-2"
@@ -59,7 +60,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, scrollY }) =>
           </div>
         </div>
         
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-6">
           {project.technologies.map((tech, techIndex) => (
             <span
               key={techIndex}
@@ -69,6 +70,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, scrollY }) =>
             </span>
           ))}
         </div>
+        
+        {/* Privacy Policy Link for Winkabook */}
+        {project.id === 'winkabook' && onPrivacyPolicyClick && (
+          <div className="pt-4 border-t border-slate-100">
+            <button
+              onClick={onPrivacyPolicyClick}
+              className="flex items-center text-blue-600 hover:text-blue-700 transition-colors duration-300 font-medium text-sm group"
+            >
+              <Shield size={16} className="mr-2 group-hover:scale-110 transition-transform duration-300" />
+              View Privacy Policy
+              <ExternalLink size={14} className="ml-2 opacity-60" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -4,12 +4,20 @@ import Navbar from './components/Navbar';
 import HeroSection from './sections/HeroSection';
 import ProjectsSection from './sections/ProjectsSection';
 import AboutSection from './sections/AboutSection';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [scrollY, setScrollY] = useState(0);
+  const [currentPage, setCurrentPage] = useState('portfolio');
 
   useEffect(() => {
+    // Check URL for privacy policy route
+    const path = window.location.pathname;
+    if (path.includes('privacy-policy') || window.location.search.includes('privacy-policy')) {
+      setCurrentPage('privacy-policy');
+    }
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
       
@@ -86,11 +94,25 @@ function App() {
     }
   ];
 
+  const handleBackToPortfolio = () => {
+    setCurrentPage('portfolio');
+    window.history.pushState({}, '', '/');
+  };
+
+  const handlePrivacyPolicyClick = () => {
+    setCurrentPage('privacy-policy');
+    window.history.pushState({}, '', '/?privacy-policy');
+  };
+
+  if (currentPage === 'privacy-policy') {
+    return <PrivacyPolicyPage onBack={handleBackToPortfolio} />;
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 overflow-x-hidden">
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
       <HeroSection scrollY={scrollY} scrollToSection={scrollToSection} />
-      <ProjectsSection projects={projects} scrollY={scrollY} />
+      <ProjectsSection projects={projects} scrollY={scrollY} onPrivacyPolicyClick={handlePrivacyPolicyClick} />
       <AboutSection skills={skills} scrollY={scrollY} />
     </div>
   );

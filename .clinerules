@@ -1,0 +1,80 @@
+# Cline Project Intelligence: ndriyo.github.io
+
+## Project Context
+This is a personal portfolio website for Darundriyos (ndriyo) built as a modern React + TypeScript + Vite application. The site showcases professional projects and technical expertise through sophisticated design and smooth user interactions.
+
+## Key Technical Patterns
+
+### Development Environment
+- **Critical Pattern**: When facing "command not found" errors for npm scripts, always check for missing node_modules/.bin directory
+- **Solution**: Clean reinstall with `rm -rf node_modules package-lock.json && npm install` resolves dependency linking issues more reliably than partial fixes
+- **Stack**: React 18 + TypeScript + Vite + Tailwind CSS optimized for GitHub Pages deployment
+
+### Architecture Decisions
+- **Component Structure**: Section-based architecture (HeroSection, ProjectsSection, AboutSection) with reusable components
+- **State Management**: React hooks only - no external state management needed for portfolio complexity
+- **Styling Approach**: Tailwind CSS with custom gradients and responsive design patterns
+- **Performance Focus**: CSS transforms for smooth parallax animations, optimized for 90+ Lighthouse scores
+
+### Code Organization
+- Strong TypeScript interfaces for all components
+- Consistent import patterns: third-party → relative imports
+- Clean separation between reusable components and page sections
+- Memory bank documentation system for project continuity
+
+## User Preferences & Quality Standards
+
+### Professional Excellence
+- High expectations for polish and professional presentation
+- Strong focus on fast loading and smooth user experience
+- Emphasis on showcasing technical expertise and measurable project impact
+- Modern technology stack preferences with well-supported tools
+
+### Content Strategy
+- Projects should highlight technology stacks and business outcomes
+- Skills presented as solutions to real business problems
+- Professional tone balancing technical depth with accessibility
+- Clear value proposition and differentiation from standard developer portfolios
+
+## Development Workflow Insights
+
+### Effective Collaboration Patterns
+- Comprehensive memory bank documentation enables seamless context switching
+- Clear phase planning with defined priorities and success criteria
+- Iterative development approach with regular quality checkpoints
+- Problem-solving approach: thorough analysis → clean solution → documentation
+
+### Performance & Deployment Considerations
+- Target: Sub-3 second load times and 90+ Lighthouse scores across all categories
+- GitHub Pages deployment with potential custom domain
+- Mobile-first responsive design with 60%+ expected mobile traffic
+- Accessibility compliance (WCAG 2.1 AA) as baseline requirement
+
+## Project Lifecycle Insights
+
+### Current Phase: Content Polish & Pre-Deployment
+- Core functionality 100% complete, focusing on optimization
+- Next priorities: Contact integration, SEO implementation, performance audit
+- Memory bank system established for maintaining project context
+- Development environment fully functional and stable
+
+### Technical Debt Management
+- No automated testing yet - plan Jest + React Testing Library integration
+- Missing CI/CD pipeline - consider GitHub Actions for deployment automation
+- SEO optimization needed before launch
+- Image optimization pipeline for future content additions
+
+## Key Success Patterns
+1. **Clean Architecture**: Section-based components with clear separation of concerns
+2. **Performance First**: CSS transforms and optimized animations from the start
+3. **Type Safety**: Comprehensive TypeScript integration prevents runtime errors
+4. **Documentation**: Memory bank system ensures project continuity across sessions
+5. **Professional Polish**: Every interaction reinforces technical competence
+
+## Future Enhancement Roadmap
+- **Phase 2**: Contact integration, SEO optimization, performance tuning
+- **Phase 3**: Testing suite, CI/CD pipeline, advanced animations
+- **Phase 4**: Blog integration, case studies, enhanced interactivity
+- **Long-term**: Professional hub functionality, client collaboration tools
+
+This project demonstrates excellence in modern web development with strong attention to professional presentation, technical quality, and user experience optimization.
