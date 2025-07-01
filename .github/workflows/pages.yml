@@ -1,0 +1,46 @@
+name: Deploy React build to GitHub Pages
+
+on:
+  push:
+    branches: [main]         # redeploy on every push to main
+  workflow_dispatch:         # …and allow manual runs
+
+# Grant the GITHUB_TOKEN the rights Pages needs
+permissions:
+  contents: read             # checkout
+  pages: write               # publish
+  id-token: write            # verify deployment OIDC
+
+concurrency:                 # cancel older runs if a new commit arrives
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build           # produces ./build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build              # directory to publish
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages             # creates the “github-pages” env
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
