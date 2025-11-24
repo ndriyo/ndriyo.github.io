@@ -42,7 +42,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ skills, scrollY }) => {
               I design and deliver digital solutions that help organizations modernize how they operate and serve their customers. My work combines product thinking, experience design, and modern engineering practices to build technology that is intuitive, secure, and business-driven.
             </p>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              I turn ideas into reliable digital products that create real business impact. This is just showcase of my personal project in my spare time.
+              I turn ideas into reliable digital products that create real business impact. This is just a showcase of my personal project in my spare time.
             </p>
             
             {/* Social media links - hidden on mobile, shown on desktop */}
