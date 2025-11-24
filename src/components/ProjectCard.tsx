@@ -11,6 +11,7 @@ interface Project {
   color: string;
   icon: typeof LucideIcon;
   status: string;
+  appStoreLink?: string;
 }
 
 interface ProjectCardProps {
@@ -70,6 +71,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, scrollY, onPr
             </span>
           ))}
         </div>
+        
+        {/* App Store Link for Winkabook */}
+        {project.appStoreLink && (
+          <div className="pt-4 border-t border-slate-100">
+            <a
+              href={project.appStoreLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <ExternalLink size={18} className="mr-2" />
+              View on App Store
+            </a>
+          </div>
+        )}
         
         {/* Privacy Policy Link for Winkabook */}
         {project.id === 'winkabook' && onPrivacyPolicyClick && (

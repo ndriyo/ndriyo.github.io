@@ -51,12 +51,13 @@ function App() {
       id: 'winkabook',
       title: 'Winkabook',
       subtitle: 'Mobile App for Kids',
-      description: 'An engaging mobile application designed specifically for children, featuring interactive learning experiences, colorful animations, and age-appropriate content that makes learning fun and accessible.',
-      technologies: ['React Native', 'TypeScript', 'Firebase', 'Figma'],
-      features: ['Interactive Learning', 'Child-Safe Design', 'Progress Tracking', 'Offline Mode'],
+      description: 'An engaging mobile application designed specifically for children, featuring interactive reading experiences, colorful animations, and age-appropriate content that makes reading fun and accessible.',
+      technologies: ['Flutter', 'Firebase', 'Figma'],
+      features: ['Interactive Reading', 'Child-Safe Design', 'Bookmark', 'Offline Mode'],
       color: 'from-pink-500 to-purple-600',
       icon: Smartphone,
-      status: 'Live in App Store'
+      status: 'Live in App Store',
+      appStoreLink: 'https://apps.apple.com/id/app/winkabook/id6747583581'
     },
     {
       id: 'primepm',

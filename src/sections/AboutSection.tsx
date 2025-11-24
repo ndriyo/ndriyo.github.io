@@ -39,15 +39,14 @@ const AboutSection: React.FC<AboutSectionProps> = ({ skills, scrollY }) => {
               About The Creator
             </h2>
             <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              I specialize in creating stunning personal homepages that effectively showcase projects and tell compelling stories. 
-              With a passion for modern design and user experience, I help individuals and businesses establish a powerful online presence.
+              I design and deliver digital solutions that help organizations modernize how they operate and serve their customers. My work combines product thinking, experience design, and modern engineering practices to build technology that is intuitive, secure, and business-driven.
             </p>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              My approach combines cutting-edge technology with timeless design principles to create websites that are not only 
-              beautiful but also functional, accessible, and performance-optimized.
+              I turn ideas into reliable digital products that create real business impact. This is just showcase of my personal project in my spare time.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            {/* Social media links - hidden on mobile, shown on desktop */}
+            <div className="hidden lg:flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <a 
                 href="https://github.com/ndriyo" 
                 target="_blank" 
@@ -93,6 +92,42 @@ const AboutSection: React.FC<AboutSectionProps> = ({ skills, scrollY }) => {
               />
             ))}
           </div>
+        </div>
+        
+        {/* Social media links - shown at bottom on mobile, hidden on desktop */}
+        <div 
+          className="lg:hidden flex flex-col items-center gap-4 mt-12"
+          style={{ 
+            opacity: Math.min(1, Math.max(0, (scrollY - 600) / 400))
+          }}
+        >
+          <a 
+            href="https://github.com/ndriyo" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center px-6 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center"
+          >
+            <Github size={20} className="mr-2" />
+            GitHub
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/ndriyo/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center"
+          >
+            <Linkedin size={20} className="mr-2" />
+            LinkedIn
+          </a>
+          <a 
+            href="https://x.com/ndriyo" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center"
+          >
+            <X size={20} className="mr-2" />
+            X
+          </a>
         </div>
       </div>
     </section>
