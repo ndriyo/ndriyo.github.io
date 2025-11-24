@@ -12,6 +12,7 @@ interface Project {
   color: string;
   icon: typeof LucideIcon;
   status: string;
+  appStoreLink?: string;
 }
 
 interface ProjectsSectionProps {
