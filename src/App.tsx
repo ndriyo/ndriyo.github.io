@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Smartphone, BarChart, Layers, Bot, Code2, BookOpen } from 'lucide-react';
+import { Smartphone, BarChart, Layers, Bot, Code2, BookOpen, TrendingUp } from 'lucide-react';
 import Navbar from './components/Navbar';
 import HeroSection from './sections/HeroSection';
 import ProjectsSection from './sections/ProjectsSection';
@@ -68,6 +68,17 @@ function App() {
       features: ['Team Collaboration', 'Advanced Analytics', 'Resource Planning', 'Real-time Updates'],
       color: 'from-blue-500 to-cyan-600',
       icon: BarChart,
+      status: 'In Development'
+    },
+    {
+      id: 'finance-agent',
+      title: 'Finance Agent',
+      subtitle: 'AI-Powered Personal Finance Assistant',
+      description: 'An intelligent finance agent that leverages AI to help users manage budgets, track expenses, forecast cash flow, and receive personalized financial insights — all through a conversational interface.',
+      technologies: ['Python', 'LangChain', 'OpenAI', 'FastAPI', 'React'],
+      features: ['Budget Tracking', 'Expense Analysis', 'AI Insights', 'Cash Flow Forecast'],
+      color: 'from-emerald-500 to-teal-600',
+      icon: TrendingUp,
       status: 'In Development'
     }
   ];
